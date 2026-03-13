@@ -1,12 +1,14 @@
 import mongoose from "mongoose";
 
 export default async function connectDB() {
-  const uri = process.env.MONGODB_URI;
+  const uri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/clinical_trial_matcher";
 
-  if (!uri) {
-    throw new Error("MONGODB_URI is not defined.");
+  try {
+    await mongoose.connect(uri);
+    console.log("MongoDB connected");
+    return true;
+  } catch (error) {
+    console.warn(`MongoDB unavailable (${error.message}). Starting API in degraded mode.`);
+    return false;
   }
-
-  await mongoose.connect(uri);
-  console.log("MongoDB connected");
 }

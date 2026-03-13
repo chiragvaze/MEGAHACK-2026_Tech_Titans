@@ -61,4 +61,14 @@ export async function importTrialJsonFile(file) {
   return data;
 }
 
+export async function fetchRecommendations(payload) {
+  const { data } = await api.post("/match/recommendations", payload);
+  return data;
+}
+
+export async function fetchMatchExplanation(payload) {
+  const { data } = await api.post("/match/explanation", payload);
+  return data;
+}
+
 export default api;

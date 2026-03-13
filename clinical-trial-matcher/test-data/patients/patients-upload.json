@@ -1,0 +1,26 @@
+[
+  {
+    "patientId": "PAT-2101",
+    "age": 50,
+    "gender": "Female",
+    "conditions": ["Type 2 Diabetes", "Hypertension"],
+    "medications": ["Metformin"],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-2102",
+    "age": 58,
+    "gender": "Male",
+    "conditions": ["Type 2 Diabetes"],
+    "medications": ["Metformin", "Insulin"],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-2103",
+    "age": 42,
+    "gender": "Female",
+    "conditions": ["Prediabetes"],
+    "medications": ["None"],
+    "location": "Mumbai"
+  }
+]

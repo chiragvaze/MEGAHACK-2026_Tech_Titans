@@ -1,4 +1,16 @@
 import Trial from "../models/Trial.js";
+import mongoose from "mongoose";
+import {
+  createTrialMemory,
+  importTrialsMemory,
+  getAllTrialsMemory,
+  getTrialByIdMemory,
+  updateTrialParsedEligibilityMemory
+} from "./devMemoryStore.js";
+
+function isDbConnected() {
+  return mongoose.connection.readyState === 1;
+}
 
 function normalizeTrial(input = {}) {
   return {
@@ -44,15 +56,28 @@ export function prepareTrial(input) {
 }
 
 export async function createTrial(trialPayload) {
-  return Trial.create(prepareTrial(trialPayload));
+  const prepared = prepareTrial(trialPayload);
+  if (!isDbConnected()) {
+    return createTrialMemory(prepared);
+  }
+
+  return Trial.create(prepared);
 }
 
 export async function importTrials(trialPayloadList = []) {
   const prepared = trialPayloadList.map(prepareTrial);
+  if (!isDbConnected()) {
+    return importTrialsMemory(prepared);
+  }
+
   return Trial.insertMany(prepared, { ordered: false });
 }
 
 export async function getAllTrials(filters = {}) {
+  if (!isDbConnected()) {
+    return getAllTrialsMemory(filters);
+  }
+
   const query = {};
 
   if (filters.condition) {
@@ -71,6 +96,10 @@ export async function getAllTrials(filters = {}) {
 }
 
 export async function getTrialById(id) {
+  if (!isDbConnected()) {
+    return getTrialByIdMemory(id);
+  }
+
   const byTrialId = await Trial.findOne({ trialId: id }).lean();
   if (byTrialId) return byTrialId;
 
@@ -82,6 +111,10 @@ export async function getTrialById(id) {
 }
 
 export async function updateTrialParsedEligibility(id, parsedRules, sourceText) {
+  if (!isDbConnected()) {
+    return updateTrialParsedEligibilityMemory(id, parsedRules, sourceText);
+  }
+
   const query = id.match(/^[0-9a-fA-F]{24}$/)
     ? { $or: [{ trialId: id }, { _id: id }] }
     : { trialId: id };

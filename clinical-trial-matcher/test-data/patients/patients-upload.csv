@@ -1,0 +1,6 @@
+patientId,age,gender,conditions,medications,location
+PAT-2001,45,Female,"Type 2 Diabetes,Hypertension","Metformin",Mumbai
+PAT-2002,52,Male,"Type 2 Diabetes","Metformin",Pune
+PAT-2003,61,Female,"Type 2 Diabetes,Obesity","Insulin",Mumbai
+PAT-2004,39,Male,"Prediabetes","None",Nashik
+PAT-2005,67,Female,"Type 2 Diabetes,Kidney Disease","Metformin",Thane

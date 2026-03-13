@@ -1,9 +1,6 @@
 import OpenAI from "openai";
 import { CohereClient } from "cohere-ai";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-const cohere = new CohereClient({ token: process.env.COHERE_API_KEY });
-
 export async function parseEligibilityCriteria(patientRecord) {
   if (!process.env.OPENAI_API_KEY || !process.env.COHERE_API_KEY) {
     return {
@@ -11,6 +8,9 @@ export async function parseEligibilityCriteria(patientRecord) {
       embeddingModel: "none"
     };
   }
+
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const cohere = new CohereClient({ token: process.env.COHERE_API_KEY });
 
   const prompt = `Summarize key clinical eligibility signals from this anonymized record: ${JSON.stringify(patientRecord)}`;
 

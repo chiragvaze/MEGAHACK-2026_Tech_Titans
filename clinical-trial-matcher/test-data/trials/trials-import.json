@@ -1,0 +1,38 @@
+[
+  {
+    "trialId": "TRIAL-1001",
+    "title": "T2D Lifestyle Intervention",
+    "condition": "Type 2 Diabetes",
+    "location": "Mumbai",
+    "minAge": 40,
+    "maxAge": 65,
+    "inclusionCriteria": "Adults aged 40-65 with diagnosed Type 2 Diabetes.",
+    "exclusionCriteria": "Kidney disease.",
+    "phase": "Phase 3",
+    "sponsor": "ABC Research"
+  },
+  {
+    "trialId": "TRIAL-1002",
+    "title": "Metformin Adherence Study",
+    "condition": "Type 2 Diabetes",
+    "location": "Pune",
+    "minAge": 35,
+    "maxAge": 70,
+    "inclusionCriteria": "Diagnosed with Type 2 Diabetes and currently on oral medication.",
+    "exclusionCriteria": "Severe liver disease.",
+    "phase": "Phase 2",
+    "sponsor": "XYZ Pharma"
+  },
+  {
+    "trialId": "TRIAL-1003",
+    "title": "Diabetes and Obesity Management",
+    "condition": "Type 2 Diabetes",
+    "location": "Mumbai",
+    "minAge": 45,
+    "maxAge": 75,
+    "inclusionCriteria": "Type 2 Diabetes with BMI over 28.",
+    "exclusionCriteria": "Advanced cardiovascular complications.",
+    "phase": "Phase 3",
+    "sponsor": "Metro Health Labs"
+  }
+]

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import matchingRoutes from "./routes/matchingRoutes.js";
+import matchRoutes from "./routes/matchRoutes.js";
 import patientRoutes from "./routes/patientRoutes.js";
 import trialRoutes from "./routes/trialRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
@@ -15,7 +16,29 @@ app.get("/health", (_req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
+app.get("/api", (_req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "Clinical Trial Matcher API",
+    endpoints: [
+      "/api/patient/create",
+      "/api/patient/upload",
+      "/api/patient/:id",
+      "/api/trial/create",
+      "/api/trial/all",
+      "/api/trial/:id",
+      "/api/trial/import",
+      "/api/ai/parse-criteria",
+      "/api/match/rule-check",
+      "/api/match/semantic",
+      "/api/match/recommendations",
+      "/api/match/explanation"
+    ]
+  });
+});
+
 app.use("/api/matching", matchingRoutes);
+app.use("/api/match", matchRoutes);
 app.use("/api/patient", patientRoutes);
 app.use("/api/trial", trialRoutes);
 app.use("/api/ai", aiRoutes);
