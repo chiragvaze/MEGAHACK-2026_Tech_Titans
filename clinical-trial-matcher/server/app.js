@@ -6,6 +6,8 @@ import patientRoutes from "./routes/patientRoutes.js";
 import trialRoutes from "./routes/trialRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import { authenticateToken } from "./middleware/authMiddleware.js";
 import { notFoundHandler, errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
@@ -22,6 +24,9 @@ app.get("/api", (_req, res) => {
     status: "ok",
     message: "Clinical Trial Matcher API",
     endpoints: [
+      "/api/auth/register",
+      "/api/auth/login",
+      "/api/auth/me",
       "/api/patient/create",
       "/api/patient/upload",
       "/api/patient/:id",
@@ -40,6 +45,9 @@ app.get("/api", (_req, res) => {
   });
 });
 
+app.use("/api/auth", authRoutes);
+
+app.use("/api", authenticateToken);
 app.use("/api/matching", matchingRoutes);
 app.use("/api/match", matchRoutes);
 app.use("/api/patient", patientRoutes);
