@@ -1,0 +1,221 @@
+patientId,age,gender,conditions,medications,location
+PAT-3001,31,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Pune
+PAT-3002,32,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nashik
+PAT-3003,33,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Thane
+PAT-3004,34,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nagpur
+PAT-3005,35,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Aurangabad
+PAT-3006,36,Female,"Neuropathy,Hypertension","None,Insulin",Solapur
+PAT-3007,37,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Kolhapur
+PAT-3008,38,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Mumbai
+PAT-3009,39,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Pune
+PAT-3010,40,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nashik
+PAT-3011,41,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Thane
+PAT-3012,42,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nagpur
+PAT-3013,43,Male,"Neuropathy,Hypertension","None,Insulin",Aurangabad
+PAT-3014,44,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Solapur
+PAT-3015,45,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Kolhapur
+PAT-3016,46,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Mumbai
+PAT-3017,47,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Pune
+PAT-3018,48,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nashik
+PAT-3019,49,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Thane
+PAT-3020,50,Female,"Neuropathy,Hypertension","None,Insulin",Nagpur
+PAT-3021,51,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Aurangabad
+PAT-3022,52,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Solapur
+PAT-3023,53,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Kolhapur
+PAT-3024,54,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Mumbai
+PAT-3025,55,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Pune
+PAT-3026,56,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nashik
+PAT-3027,57,Male,"Neuropathy,Hypertension","None,Insulin",Thane
+PAT-3028,58,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nagpur
+PAT-3029,59,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Aurangabad
+PAT-3030,60,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Solapur
+PAT-3031,61,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Kolhapur
+PAT-3032,62,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Mumbai
+PAT-3033,63,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Pune
+PAT-3034,64,Female,"Neuropathy,Hypertension","None,Insulin",Nashik
+PAT-3035,65,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Thane
+PAT-3036,66,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nagpur
+PAT-3037,67,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Aurangabad
+PAT-3038,68,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Solapur
+PAT-3039,69,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Kolhapur
+PAT-3040,70,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Mumbai
+PAT-3041,71,Male,"Neuropathy,Hypertension","None,Insulin",Pune
+PAT-3042,72,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nashik
+PAT-3043,73,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Thane
+PAT-3044,74,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nagpur
+PAT-3045,75,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Aurangabad
+PAT-3046,30,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Solapur
+PAT-3047,31,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Kolhapur
+PAT-3048,32,Female,"Neuropathy,Hypertension","None,Insulin",Mumbai
+PAT-3049,33,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Pune
+PAT-3050,34,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nashik
+PAT-3051,35,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Thane
+PAT-3052,36,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nagpur
+PAT-3053,37,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Aurangabad
+PAT-3054,38,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Solapur
+PAT-3055,39,Male,"Neuropathy,Hypertension","None,Insulin",Kolhapur
+PAT-3056,40,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Mumbai
+PAT-3057,41,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Pune
+PAT-3058,42,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nashik
+PAT-3059,43,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Thane
+PAT-3060,44,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nagpur
+PAT-3061,45,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Aurangabad
+PAT-3062,46,Female,"Neuropathy,Hypertension","None,Insulin",Solapur
+PAT-3063,47,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Kolhapur
+PAT-3064,48,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Mumbai
+PAT-3065,49,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Pune
+PAT-3066,50,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nashik
+PAT-3067,51,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Thane
+PAT-3068,52,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nagpur
+PAT-3069,53,Male,"Neuropathy,Hypertension","None,Insulin",Aurangabad
+PAT-3070,54,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Solapur
+PAT-3071,55,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Kolhapur
+PAT-3072,56,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Mumbai
+PAT-3073,57,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Pune
+PAT-3074,58,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nashik
+PAT-3075,59,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Thane
+PAT-3076,60,Female,"Neuropathy,Hypertension","None,Insulin",Nagpur
+PAT-3077,61,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Aurangabad
+PAT-3078,62,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Solapur
+PAT-3079,63,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Kolhapur
+PAT-3080,64,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Mumbai
+PAT-3081,65,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Pune
+PAT-3082,66,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nashik
+PAT-3083,67,Male,"Neuropathy,Hypertension","None,Insulin",Thane
+PAT-3084,68,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nagpur
+PAT-3085,69,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Aurangabad
+PAT-3086,70,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Solapur
+PAT-3087,71,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Kolhapur
+PAT-3088,72,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Mumbai
+PAT-3089,73,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Pune
+PAT-3090,74,Female,"Neuropathy,Hypertension","None,Insulin",Nashik
+PAT-3091,75,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Thane
+PAT-3092,30,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nagpur
+PAT-3093,31,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Aurangabad
+PAT-3094,32,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Solapur
+PAT-3095,33,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Kolhapur
+PAT-3096,34,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Mumbai
+PAT-3097,35,Male,"Neuropathy,Hypertension","None,Insulin",Pune
+PAT-3098,36,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nashik
+PAT-3099,37,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Thane
+PAT-3100,38,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nagpur
+PAT-3101,39,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Aurangabad
+PAT-3102,40,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Solapur
+PAT-3103,41,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Kolhapur
+PAT-3104,42,Female,"Neuropathy,Hypertension","None,Insulin",Mumbai
+PAT-3105,43,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Pune
+PAT-3106,44,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nashik
+PAT-3107,45,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Thane
+PAT-3108,46,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nagpur
+PAT-3109,47,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Aurangabad
+PAT-3110,48,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Solapur
+PAT-3111,49,Male,"Neuropathy,Hypertension","None,Insulin",Kolhapur
+PAT-3112,50,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Mumbai
+PAT-3113,51,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Pune
+PAT-3114,52,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nashik
+PAT-3115,53,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Thane
+PAT-3116,54,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nagpur
+PAT-3117,55,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Aurangabad
+PAT-3118,56,Female,"Neuropathy,Hypertension","None,Insulin",Solapur
+PAT-3119,57,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Kolhapur
+PAT-3120,58,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Mumbai
+PAT-3121,59,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Pune
+PAT-3122,60,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nashik
+PAT-3123,61,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Thane
+PAT-3124,62,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nagpur
+PAT-3125,63,Male,"Neuropathy,Hypertension","None,Insulin",Aurangabad
+PAT-3126,64,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Solapur
+PAT-3127,65,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Kolhapur
+PAT-3128,66,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Mumbai
+PAT-3129,67,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Pune
+PAT-3130,68,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nashik
+PAT-3131,69,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Thane
+PAT-3132,70,Female,"Neuropathy,Hypertension","None,Insulin",Nagpur
+PAT-3133,71,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Aurangabad
+PAT-3134,72,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Solapur
+PAT-3135,73,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Kolhapur
+PAT-3136,74,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Mumbai
+PAT-3137,75,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Pune
+PAT-3138,30,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nashik
+PAT-3139,31,Male,"Neuropathy,Hypertension","None,Insulin",Thane
+PAT-3140,32,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nagpur
+PAT-3141,33,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Aurangabad
+PAT-3142,34,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Solapur
+PAT-3143,35,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Kolhapur
+PAT-3144,36,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Mumbai
+PAT-3145,37,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Pune
+PAT-3146,38,Female,"Neuropathy,Hypertension","None,Insulin",Nashik
+PAT-3147,39,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Thane
+PAT-3148,40,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nagpur
+PAT-3149,41,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Aurangabad
+PAT-3150,42,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Solapur
+PAT-3151,43,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Kolhapur
+PAT-3152,44,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Mumbai
+PAT-3153,45,Male,"Neuropathy,Hypertension","None,Insulin",Pune
+PAT-3154,46,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nashik
+PAT-3155,47,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Thane
+PAT-3156,48,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nagpur
+PAT-3157,49,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Aurangabad
+PAT-3158,50,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Solapur
+PAT-3159,51,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Kolhapur
+PAT-3160,52,Female,"Neuropathy,Hypertension","None,Insulin",Mumbai
+PAT-3161,53,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Pune
+PAT-3162,54,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nashik
+PAT-3163,55,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Thane
+PAT-3164,56,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nagpur
+PAT-3165,57,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Aurangabad
+PAT-3166,58,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Solapur
+PAT-3167,59,Male,"Neuropathy,Hypertension","None,Insulin",Kolhapur
+PAT-3168,60,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Mumbai
+PAT-3169,61,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Pune
+PAT-3170,62,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nashik
+PAT-3171,63,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Thane
+PAT-3172,64,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nagpur
+PAT-3173,65,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Aurangabad
+PAT-3174,66,Female,"Neuropathy,Hypertension","None,Insulin",Solapur
+PAT-3175,67,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Kolhapur
+PAT-3176,68,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Mumbai
+PAT-3177,69,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Pune
+PAT-3178,70,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nashik
+PAT-3179,71,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Thane
+PAT-3180,72,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nagpur
+PAT-3181,73,Male,"Neuropathy,Hypertension","None,Insulin",Aurangabad
+PAT-3182,74,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Solapur
+PAT-3183,75,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Kolhapur
+PAT-3184,30,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Mumbai
+PAT-3185,31,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Pune
+PAT-3186,32,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Nashik
+PAT-3187,33,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Thane
+PAT-3188,34,Female,"Neuropathy,Hypertension","None,Insulin",Nagpur
+PAT-3189,35,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Aurangabad
+PAT-3190,36,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Solapur
+PAT-3191,37,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Kolhapur
+PAT-3192,38,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Mumbai
+PAT-3193,39,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Pune
+PAT-3194,40,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Nashik
+PAT-3195,41,Male,"Neuropathy,Hypertension","None,Insulin",Thane
+PAT-3196,42,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nagpur
+PAT-3197,43,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Aurangabad
+PAT-3198,44,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Solapur
+PAT-3199,45,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Kolhapur
+PAT-3200,46,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Mumbai
+PAT-3201,47,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Pune
+PAT-3202,48,Female,"Neuropathy,Hypertension","None,Insulin",Nashik
+PAT-3203,49,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Thane
+PAT-3204,50,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nagpur
+PAT-3205,51,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Aurangabad
+PAT-3206,52,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Solapur
+PAT-3207,53,Male,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Kolhapur
+PAT-3208,54,Female,"Fatty Liver,Prediabetes","Statin,Metformin",Mumbai
+PAT-3209,55,Male,"Neuropathy,Hypertension","None,Insulin",Pune
+PAT-3210,56,Female,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Nashik
+PAT-3211,57,Male,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Thane
+PAT-3212,58,Female,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Nagpur
+PAT-3213,59,Male,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Aurangabad
+PAT-3214,60,Female,"Dyslipidemia,Type 2 Diabetes","ACE Inhibitor,None",Solapur
+PAT-3215,61,Male,"Fatty Liver,Prediabetes","Statin,Metformin",Kolhapur
+PAT-3216,62,Female,"Neuropathy,Hypertension","None,Insulin",Mumbai
+PAT-3217,63,Male,"Type 2 Diabetes,Obesity","Metformin,GLP-1 Agonist",Pune
+PAT-3218,64,Female,"Prediabetes,Dyslipidemia","Insulin,DPP-4 Inhibitor",Nashik
+PAT-3219,65,Male,"Hypertension,Fatty Liver","GLP-1 Agonist,ACE Inhibitor",Thane
+PAT-3220,66,Female,"Obesity,Neuropathy","DPP-4 Inhibitor,Statin",Nagpur

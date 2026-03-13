@@ -8,7 +8,7 @@ export default function TrialRankingChart({ recommendations }) {
   }));
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="card-surface p-6">
       <h3 className="text-lg font-semibold">Trial Ranking Trend</h3>
       <div className="mt-4 h-72 w-full">
         <ResponsiveContainer>

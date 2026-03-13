@@ -79,31 +79,31 @@ export default function TrialDatabasePage() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="card-surface p-6">
         <h2 className="text-xl font-semibold text-slate-900">Clinical Trial Database</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Import trial datasets and explore eligibility criteria with condition, location, and phase filters.
+          Import trial datasets and explore records with fast filters and full eligibility criteria views.
         </p>
 
-        <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-center">
+        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
           <input
             type="file"
             accept=".json"
             onChange={(event) => setUploadFile(event.target.files?.[0] || null)}
-            className="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="block w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
           />
           <button
             type="button"
             onClick={onImportDataset}
             disabled={loading}
-            className="rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60"
+            className="rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60"
           >
             Import JSON Dataset
           </button>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="card-surface p-6">
         <h3 className="text-lg font-semibold">Filters</h3>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <input
@@ -111,20 +111,20 @@ export default function TrialDatabasePage() {
             value={filters.condition}
             onChange={onFilterChange}
             placeholder="Condition"
-            className="rounded-lg border border-slate-300 px-3 py-2"
+            className="rounded-xl border border-slate-300 bg-white px-3 py-2"
           />
           <input
             name="location"
             value={filters.location}
             onChange={onFilterChange}
             placeholder="Location"
-            className="rounded-lg border border-slate-300 px-3 py-2"
+            className="rounded-xl border border-slate-300 bg-white px-3 py-2"
           />
           <select
             name="phase"
             value={filters.phase}
             onChange={onFilterChange}
-            className="rounded-lg border border-slate-300 px-3 py-2"
+            className="rounded-xl border border-slate-300 bg-white px-3 py-2"
           >
             <option value="">All Phases</option>
             {phases.map((phase) => (
@@ -140,7 +140,7 @@ export default function TrialDatabasePage() {
             type="button"
             onClick={applyFilters}
             disabled={loading}
-            className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700 disabled:opacity-60"
+            className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700 disabled:opacity-60"
           >
             Apply Filters
           </button>
@@ -148,19 +148,19 @@ export default function TrialDatabasePage() {
             type="button"
             onClick={clearFilters}
             disabled={loading}
-            className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60"
           >
             Clear
           </button>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="card-surface p-6">
         <h3 className="text-lg font-semibold">Trials</h3>
 
         {loading ? <p className="mt-4 text-sm text-slate-600">Loading trials...</p> : null}
 
-        <div className="mt-4 overflow-x-auto">
+        <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
           <table className="min-w-full divide-y divide-slate-200 text-sm">
             <thead>
               <tr className="text-left text-slate-600">
@@ -192,7 +192,7 @@ export default function TrialDatabasePage() {
                         <button
                           type="button"
                           onClick={() => setExpandedTrialId(isOpen ? "" : trial.trialId)}
-                          className="rounded-md border border-slate-300 px-2 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                          className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                         >
                           {isOpen ? "Hide" : "View"}
                         </button>
@@ -201,7 +201,7 @@ export default function TrialDatabasePage() {
                     {isOpen ? (
                       <tr key={`${trial.trialId}-details`}>
                         <td className="px-3 py-3" colSpan={7}>
-                          <div className="grid gap-4 rounded-lg bg-slate-50 p-4 md:grid-cols-2">
+                          <div className="grid gap-4 rounded-xl bg-slate-50 p-4 md:grid-cols-2">
                             <article>
                               <h4 className="font-semibold text-slate-800">Inclusion Criteria</h4>
                               <p className="mt-2 whitespace-pre-wrap text-slate-700">{trial.inclusionCriteria}</p>

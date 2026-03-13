@@ -1,26 +1,3082 @@
 [
   {
-    "patientId": "PAT-2101",
-    "age": 50,
-    "gender": "Female",
-    "conditions": ["Type 2 Diabetes", "Hypertension"],
-    "medications": ["Metformin"],
-    "location": "Mumbai"
-  },
-  {
-    "patientId": "PAT-2102",
-    "age": 58,
+    "patientId": "PAT-3001",
+    "age": 31,
     "gender": "Male",
-    "conditions": ["Type 2 Diabetes"],
-    "medications": ["Metformin", "Insulin"],
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
     "location": "Pune"
   },
   {
-    "patientId": "PAT-2103",
+    "patientId": "PAT-3002",
+    "age": 32,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3003",
+    "age": 33,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3004",
+    "age": 34,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3005",
+    "age": 35,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3006",
+    "age": 36,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3007",
+    "age": 37,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3008",
+    "age": 38,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3009",
+    "age": 39,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3010",
+    "age": 40,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3011",
+    "age": 41,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3012",
     "age": 42,
     "gender": "Female",
-    "conditions": ["Prediabetes"],
-    "medications": ["None"],
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3013",
+    "age": 43,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3014",
+    "age": 44,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3015",
+    "age": 45,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3016",
+    "age": 46,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
     "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3017",
+    "age": 47,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3018",
+    "age": 48,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3019",
+    "age": 49,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3020",
+    "age": 50,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3021",
+    "age": 51,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3022",
+    "age": 52,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3023",
+    "age": 53,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3024",
+    "age": 54,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3025",
+    "age": 55,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3026",
+    "age": 56,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3027",
+    "age": 57,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3028",
+    "age": 58,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3029",
+    "age": 59,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3030",
+    "age": 60,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3031",
+    "age": 61,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3032",
+    "age": 62,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3033",
+    "age": 63,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3034",
+    "age": 64,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3035",
+    "age": 65,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3036",
+    "age": 66,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3037",
+    "age": 67,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3038",
+    "age": 68,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3039",
+    "age": 69,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3040",
+    "age": 70,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3041",
+    "age": 71,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3042",
+    "age": 72,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3043",
+    "age": 73,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3044",
+    "age": 74,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3045",
+    "age": 75,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3046",
+    "age": 30,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3047",
+    "age": 31,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3048",
+    "age": 32,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3049",
+    "age": 33,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3050",
+    "age": 34,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3051",
+    "age": 35,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3052",
+    "age": 36,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3053",
+    "age": 37,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3054",
+    "age": 38,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3055",
+    "age": 39,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3056",
+    "age": 40,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3057",
+    "age": 41,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3058",
+    "age": 42,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3059",
+    "age": 43,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3060",
+    "age": 44,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3061",
+    "age": 45,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3062",
+    "age": 46,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3063",
+    "age": 47,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3064",
+    "age": 48,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3065",
+    "age": 49,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3066",
+    "age": 50,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3067",
+    "age": 51,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3068",
+    "age": 52,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3069",
+    "age": 53,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3070",
+    "age": 54,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3071",
+    "age": 55,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3072",
+    "age": 56,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3073",
+    "age": 57,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3074",
+    "age": 58,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3075",
+    "age": 59,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3076",
+    "age": 60,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3077",
+    "age": 61,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3078",
+    "age": 62,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3079",
+    "age": 63,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3080",
+    "age": 64,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3081",
+    "age": 65,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3082",
+    "age": 66,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3083",
+    "age": 67,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3084",
+    "age": 68,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3085",
+    "age": 69,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3086",
+    "age": 70,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3087",
+    "age": 71,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3088",
+    "age": 72,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3089",
+    "age": 73,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3090",
+    "age": 74,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3091",
+    "age": 75,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3092",
+    "age": 30,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3093",
+    "age": 31,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3094",
+    "age": 32,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3095",
+    "age": 33,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3096",
+    "age": 34,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3097",
+    "age": 35,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3098",
+    "age": 36,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3099",
+    "age": 37,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3100",
+    "age": 38,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3101",
+    "age": 39,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3102",
+    "age": 40,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3103",
+    "age": 41,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3104",
+    "age": 42,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3105",
+    "age": 43,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3106",
+    "age": 44,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3107",
+    "age": 45,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3108",
+    "age": 46,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3109",
+    "age": 47,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3110",
+    "age": 48,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3111",
+    "age": 49,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3112",
+    "age": 50,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3113",
+    "age": 51,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3114",
+    "age": 52,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3115",
+    "age": 53,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3116",
+    "age": 54,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3117",
+    "age": 55,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3118",
+    "age": 56,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3119",
+    "age": 57,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3120",
+    "age": 58,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3121",
+    "age": 59,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3122",
+    "age": 60,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3123",
+    "age": 61,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3124",
+    "age": 62,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3125",
+    "age": 63,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3126",
+    "age": 64,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3127",
+    "age": 65,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3128",
+    "age": 66,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3129",
+    "age": 67,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3130",
+    "age": 68,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3131",
+    "age": 69,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3132",
+    "age": 70,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3133",
+    "age": 71,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3134",
+    "age": 72,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3135",
+    "age": 73,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3136",
+    "age": 74,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3137",
+    "age": 75,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3138",
+    "age": 30,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3139",
+    "age": 31,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3140",
+    "age": 32,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3141",
+    "age": 33,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3142",
+    "age": 34,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3143",
+    "age": 35,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3144",
+    "age": 36,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3145",
+    "age": 37,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3146",
+    "age": 38,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3147",
+    "age": 39,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3148",
+    "age": 40,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3149",
+    "age": 41,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3150",
+    "age": 42,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3151",
+    "age": 43,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3152",
+    "age": 44,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3153",
+    "age": 45,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3154",
+    "age": 46,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3155",
+    "age": 47,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3156",
+    "age": 48,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3157",
+    "age": 49,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3158",
+    "age": 50,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3159",
+    "age": 51,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3160",
+    "age": 52,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3161",
+    "age": 53,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3162",
+    "age": 54,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3163",
+    "age": 55,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3164",
+    "age": 56,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3165",
+    "age": 57,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3166",
+    "age": 58,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3167",
+    "age": 59,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3168",
+    "age": 60,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3169",
+    "age": 61,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3170",
+    "age": 62,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3171",
+    "age": 63,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3172",
+    "age": 64,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3173",
+    "age": 65,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3174",
+    "age": 66,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3175",
+    "age": 67,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3176",
+    "age": 68,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3177",
+    "age": 69,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3178",
+    "age": 70,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3179",
+    "age": 71,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3180",
+    "age": 72,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3181",
+    "age": 73,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3182",
+    "age": 74,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3183",
+    "age": 75,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3184",
+    "age": 30,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3185",
+    "age": 31,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3186",
+    "age": 32,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3187",
+    "age": 33,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3188",
+    "age": 34,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3189",
+    "age": 35,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3190",
+    "age": 36,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3191",
+    "age": 37,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3192",
+    "age": 38,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3193",
+    "age": 39,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3194",
+    "age": 40,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3195",
+    "age": 41,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3196",
+    "age": 42,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3197",
+    "age": 43,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3198",
+    "age": 44,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3199",
+    "age": 45,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3200",
+    "age": 46,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3201",
+    "age": 47,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3202",
+    "age": 48,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3203",
+    "age": 49,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3204",
+    "age": 50,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3205",
+    "age": 51,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3206",
+    "age": 52,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3207",
+    "age": 53,
+    "gender": "Male",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3208",
+    "age": 54,
+    "gender": "Female",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3209",
+    "age": 55,
+    "gender": "Male",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3210",
+    "age": 56,
+    "gender": "Female",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3211",
+    "age": 57,
+    "gender": "Male",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3212",
+    "age": 58,
+    "gender": "Female",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Nagpur"
+  },
+  {
+    "patientId": "PAT-3213",
+    "age": 59,
+    "gender": "Male",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Aurangabad"
+  },
+  {
+    "patientId": "PAT-3214",
+    "age": 60,
+    "gender": "Female",
+    "conditions": [
+      "Dyslipidemia",
+      "Type 2 Diabetes"
+    ],
+    "medications": [
+      "ACE Inhibitor",
+      "None"
+    ],
+    "location": "Solapur"
+  },
+  {
+    "patientId": "PAT-3215",
+    "age": 61,
+    "gender": "Male",
+    "conditions": [
+      "Fatty Liver",
+      "Prediabetes"
+    ],
+    "medications": [
+      "Statin",
+      "Metformin"
+    ],
+    "location": "Kolhapur"
+  },
+  {
+    "patientId": "PAT-3216",
+    "age": 62,
+    "gender": "Female",
+    "conditions": [
+      "Neuropathy",
+      "Hypertension"
+    ],
+    "medications": [
+      "None",
+      "Insulin"
+    ],
+    "location": "Mumbai"
+  },
+  {
+    "patientId": "PAT-3217",
+    "age": 63,
+    "gender": "Male",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Obesity"
+    ],
+    "medications": [
+      "Metformin",
+      "GLP-1 Agonist"
+    ],
+    "location": "Pune"
+  },
+  {
+    "patientId": "PAT-3218",
+    "age": 64,
+    "gender": "Female",
+    "conditions": [
+      "Prediabetes",
+      "Dyslipidemia"
+    ],
+    "medications": [
+      "Insulin",
+      "DPP-4 Inhibitor"
+    ],
+    "location": "Nashik"
+  },
+  {
+    "patientId": "PAT-3219",
+    "age": 65,
+    "gender": "Male",
+    "conditions": [
+      "Hypertension",
+      "Fatty Liver"
+    ],
+    "medications": [
+      "GLP-1 Agonist",
+      "ACE Inhibitor"
+    ],
+    "location": "Thane"
+  },
+  {
+    "patientId": "PAT-3220",
+    "age": 66,
+    "gender": "Female",
+    "conditions": [
+      "Obesity",
+      "Neuropathy"
+    ],
+    "medications": [
+      "DPP-4 Inhibitor",
+      "Statin"
+    ],
+    "location": "Nagpur"
   }
 ]

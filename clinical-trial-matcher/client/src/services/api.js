@@ -67,7 +67,12 @@ export async function fetchRecommendations(payload) {
 }
 
 export async function fetchMatchExplanation(payload) {
-  const { data } = await api.post("/match/explanation", payload);
+  const { data } = await api.post("/ai/explain-match", payload);
+  return data;
+}
+
+export async function fetchChatExplanation(payload) {
+  const { data } = await api.post("/chat/explain", payload);
   return data;
 }
 

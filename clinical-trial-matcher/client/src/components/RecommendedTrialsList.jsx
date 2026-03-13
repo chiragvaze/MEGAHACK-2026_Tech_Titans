@@ -7,7 +7,7 @@ export default function RecommendedTrialsList({
 }) {
   if (!recommendations.length) {
     return (
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="card-surface p-6">
         <h3 className="text-lg font-semibold">Recommended Trials List</h3>
         <p className="mt-3 text-sm text-slate-500">Run matching to see recommendations.</p>
       </div>
@@ -15,7 +15,7 @@ export default function RecommendedTrialsList({
   }
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="card-surface p-6">
       <h3 className="text-lg font-semibold">Recommended Trials List</h3>
       <div className="mt-4 space-y-3">
         {recommendations.map((item) => {

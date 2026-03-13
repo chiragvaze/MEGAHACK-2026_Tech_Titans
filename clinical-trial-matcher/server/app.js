@@ -5,6 +5,7 @@ import matchRoutes from "./routes/matchRoutes.js";
 import patientRoutes from "./routes/patientRoutes.js";
 import trialRoutes from "./routes/trialRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
+import chatRoutes from "./routes/chatRoutes.js";
 import { notFoundHandler, errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
@@ -29,10 +30,12 @@ app.get("/api", (_req, res) => {
       "/api/trial/:id",
       "/api/trial/import",
       "/api/ai/parse-criteria",
+      "/api/ai/explain-match",
       "/api/match/rule-check",
       "/api/match/semantic",
       "/api/match/recommendations",
-      "/api/match/explanation"
+      "/api/match/explanation",
+      "/api/chat/explain"
     ]
   });
 });
@@ -42,6 +45,7 @@ app.use("/api/match", matchRoutes);
 app.use("/api/patient", patientRoutes);
 app.use("/api/trial", trialRoutes);
 app.use("/api/ai", aiRoutes);
+app.use("/api/chat", chatRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
