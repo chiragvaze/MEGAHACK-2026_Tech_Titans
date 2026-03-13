@@ -1,73 +1,381 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Area,
   AreaChart,
+  Bar,
+  BarChart,
   CartesianGrid,
+  Line,
+  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis
 } from "recharts";
-import MetricCard from "../components/MetricCard.jsx";
+import { fetchProfile } from "../services/authService";
+import BehaviorCapture from "../components/BehaviorCapture";
+import { fetchRiskPrediction } from "../services/predictService";
+import { clearBehaviorHistory, fetchBehaviorHistory } from "../services/behaviorService";
 
-const trendData = [
-  { day: "Mon", drift: 12 },
-  { day: "Tue", drift: 18 },
-  { day: "Wed", drift: 16 },
-  { day: "Thu", drift: 27 },
-  { day: "Fri", drift: 22 },
-  { day: "Sat", drift: 19 },
-  { day: "Sun", drift: 24 }
-];
+const getRiskTheme = (drift) => {
+  if (drift >= 0.25) {
+    return {
+      status: "High Drift",
+      statusClass: "text-red-700",
+      chipClass: "bg-red-100 text-red-700"
+    };
+  }
+
+  if (drift >= 0.1) {
+    return {
+      status: "Moderate Drift",
+      statusClass: "text-amber-700",
+      chipClass: "bg-amber-100 text-amber-700"
+    };
+  }
+
+  return {
+    status: "Stable",
+    statusClass: "text-emerald-700",
+    chipClass: "bg-emerald-100 text-emerald-700"
+  };
+};
 
 function DashboardPage() {
+  const navigate = useNavigate();
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [prediction, setPrediction] = useState(null);
+  const [predictionError, setPredictionError] = useState("");
+  const [behaviorHistory, setBehaviorHistory] = useState([]);
+  const [historyError, setHistoryError] = useState("");
+  const [historyStatus, setHistoryStatus] = useState("");
+  const [isClearingHistory, setIsClearingHistory] = useState(false);
+
+  const chartSeries = behaviorHistory.map((entry, index) => ({
+    label: `S${index + 1}`,
+    typingSpeed: entry.typingSpeed,
+    keyDelay: entry.avgKeyDelay,
+    mouseSpeed: entry.mouseSpeed,
+    drift: entry.driftScore,
+    stability: entry.stabilityScore
+  }));
+
+  const latestDrift = chartSeries.length ? Number(chartSeries[chartSeries.length - 1].drift || 0) : 0;
+  const latestStability = chartSeries.length
+    ? Number(chartSeries[chartSeries.length - 1].stability || 100)
+    : 100;
+  const stabilityScore = Math.round(latestStability);
+  const riskTheme = getRiskTheme(latestDrift);
+
+  const loadBehaviorHistory = async () => {
+    try {
+      const data = await fetchBehaviorHistory();
+      setBehaviorHistory(Array.isArray(data.history) ? data.history : []);
+      setHistoryError("");
+    } catch (requestError) {
+      setHistoryError(requestError.response?.data?.message || "Behavior history unavailable");
+    }
+  };
+
+  const loadPrediction = async () => {
+    try {
+      const data = await fetchRiskPrediction();
+      setPrediction(data);
+      setPredictionError("");
+    } catch (requestError) {
+      setPredictionError(requestError.response?.data?.message || "Prediction unavailable");
+    }
+  };
+
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        const data = await fetchProfile();
+        setProfile(data.user);
+      } catch (requestError) {
+        setError(requestError.response?.data?.message || "Failed to load profile");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProfile();
+  }, []);
+
+  useEffect(() => {
+    loadBehaviorHistory();
+    loadPrediction();
+  }, []);
+
+  const handleClearHistory = async () => {
+    setHistoryStatus("");
+    setIsClearingHistory(true);
+
+    try {
+      const result = await clearBehaviorHistory();
+      setHistoryStatus(`History cleared. Deleted ${result.deletedCount} session records.`);
+      await Promise.all([loadBehaviorHistory(), loadPrediction()]);
+    } catch (requestError) {
+      setHistoryStatus(requestError.response?.data?.message || "Failed to clear history");
+    } finally {
+      setIsClearingHistory(false);
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("neuroprint_token");
+    localStorage.removeItem("neuroprint_user");
+    navigate("/login", { replace: true });
+  };
+
   return (
     <div className="min-h-screen px-4 py-10 sm:px-8">
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mx-auto mb-8 max-w-6xl"
-      >
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-600">
-          NeuroPrint System
-        </p>
-        <h1 className="mt-2 text-3xl font-bold text-ink sm:text-4xl">
-          Cognitive Drift Intelligence Dashboard
-        </h1>
-      </motion.header>
+      <div className="mx-auto max-w-6xl rounded-2xl border border-slate-200 bg-white/90 p-8 shadow-lg">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-600">NeuroPrint</p>
+            <h1 className="mt-2 text-3xl font-bold text-ink">Cognitive Intelligence Dashboard</h1>
+          </div>
 
-      <section className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <MetricCard title="Current Drift Score" value="24.2" accent="text-sky-600" />
-        <MetricCard title="Typing Stability" value="87%" accent="text-emerald-600" />
-        <MetricCard title="Mouse Consistency" value="81%" accent="text-cyan-700" />
-        <MetricCard title="Alerts (7d)" value="3" accent="text-rose-600" />
-      </section>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => navigate("/baseline")}
+              className="rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+            >
+              Run Baseline Session
+            </button>
 
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15 }}
-        className="mx-auto mt-8 max-w-6xl rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-lg"
-      >
-        <h2 className="mb-4 text-xl font-semibold text-ink">Weekly Drift Trend</h2>
-        <div className="h-72 w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={trendData} margin={{ top: 10, right: 20, left: -10, bottom: 0 }}>
-              <defs>
-                <linearGradient id="driftGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.4} />
-                  <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis dataKey="day" stroke="#64748b" />
-              <YAxis stroke="#64748b" />
-              <Tooltip />
-              <Area type="monotone" dataKey="drift" stroke="#0284c7" fill="url(#driftGradient)" />
-            </AreaChart>
-          </ResponsiveContainer>
+            <button
+              type="button"
+              onClick={handleClearHistory}
+              disabled={isClearingHistory}
+              className="rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-700 disabled:opacity-70"
+            >
+              {isClearingHistory ? "Clearing..." : "Reset My History"}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="rounded-xl bg-slate-800 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-900"
+            >
+              Logout
+            </button>
+          </div>
         </div>
-      </motion.section>
+
+        <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
+          <h2 className="text-lg font-semibold text-slate-800">Authenticated User Profile</h2>
+
+          {loading && <p className="mt-2 text-sm text-slate-500">Loading profile...</p>}
+          {!loading && error && <p className="mt-2 text-sm text-rose-600">{error}</p>}
+
+          {!loading && !error && profile && (
+            <>
+              <div className="mt-3 space-y-2 text-sm text-slate-700">
+                <p>
+                  <span className="font-semibold">Name:</span> {profile.name}
+                </p>
+                <p>
+                  <span className="font-semibold">Email:</span> {profile.email}
+                </p>
+                <p>
+                  <span className="font-semibold">Created:</span>{" "}
+                  {new Date(profile.createdAt).toLocaleString()}
+                </p>
+                <p>
+                  <span className="font-semibold">Baseline Typing Speed:</span>{" "}
+                  {profile.baselineProfile?.typingSpeed?.toFixed?.(2) || 0}
+                </p>
+              </div>
+            </>
+          )}
+        </div>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="mt-8 rounded-xl border border-slate-200 bg-white p-6"
+        >
+          <p className="text-sm uppercase tracking-[0.12em] text-slate-500">Cognitive Stability Score</p>
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-4">
+              <span className={`text-5xl font-bold ${riskTheme.statusClass}`}>{stabilityScore}%</span>
+              <div>
+                <p className="text-sm text-slate-500">Status</p>
+                <span className={`inline-flex rounded-full px-3 py-1 text-sm font-semibold ${riskTheme.chipClass}`}>
+                  {riskTheme.status}
+                </span>
+              </div>
+            </div>
+            <p className="text-sm text-slate-500">Derived from latest baseline vs behavior similarity</p>
+          </div>
+        </motion.section>
+
+        <section className="mt-8 grid gap-5 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05, duration: 0.35 }}
+            className="rounded-xl border border-slate-200 bg-white p-5"
+          >
+            <h3 className="text-lg font-semibold text-slate-800">Typing Behavior Chart</h3>
+            <p className="mt-1 text-sm text-slate-500">Typing speed over time</p>
+            <div className="mt-4 h-60 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={chartSeries}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="label" stroke="#64748b" />
+                  <YAxis stroke="#64748b" />
+                  <Tooltip />
+                  <Line type="monotone" dataKey="typingSpeed" stroke="#16a34a" strokeWidth={3} dot={{ r: 3 }} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.35 }}
+            className="rounded-xl border border-slate-200 bg-white p-5"
+          >
+            <h3 className="text-lg font-semibold text-slate-800">Key Delay Variance</h3>
+            <p className="mt-1 text-sm text-slate-500">Inter-key delay stability snapshot</p>
+            <div className="mt-4 h-60 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartSeries}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="label" stroke="#64748b" />
+                  <YAxis stroke="#64748b" />
+                  <Tooltip />
+                  <Bar dataKey="keyDelay" fill="#f59e0b" radius={[6, 6, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.35 }}
+            className="rounded-xl border border-slate-200 bg-white p-5"
+          >
+            <h3 className="text-lg font-semibold text-slate-800">Mouse Movement Chart</h3>
+            <p className="mt-1 text-sm text-slate-500">Mouse speed variation profile</p>
+            <div className="mt-4 h-60 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={chartSeries}>
+                  <defs>
+                    <linearGradient id="mouseArea" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#22c55e" stopOpacity={0.4} />
+                      <stop offset="95%" stopColor="#22c55e" stopOpacity={0.05} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="label" stroke="#64748b" />
+                  <YAxis stroke="#64748b" />
+                  <Tooltip />
+                  <Area
+                    type="monotone"
+                    dataKey="mouseSpeed"
+                    stroke="#16a34a"
+                    fill="url(#mouseArea)"
+                    strokeWidth={2}
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.35 }}
+            className="rounded-xl border border-slate-200 bg-white p-5"
+          >
+            <h3 className="text-lg font-semibold text-slate-800">Drift Timeline</h3>
+            <p className="mt-1 text-sm text-slate-500">Recent cognitive drift progression</p>
+            <div className="mt-4 h-60 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={chartSeries}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="label" stroke="#64748b" />
+                  <YAxis stroke="#64748b" domain={[0, 0.3]} />
+                  <Tooltip formatter={(value) => `${(Number(value) * 100).toFixed(1)}%`} />
+                  <Line type="monotone" dataKey="drift" stroke="#ef4444" strokeWidth={3} dot={{ r: 3 }} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.div>
+        </section>
+
+        {historyError && <p className="mt-3 text-sm text-rose-600">{historyError}</p>}
+        {historyStatus && <p className="mt-3 text-sm text-slate-700">{historyStatus}</p>}
+        {!historyError && chartSeries.length === 0 && (
+          <p className="mt-3 text-sm text-slate-500">
+            No behavior history found yet. Capture a session to populate charts.
+          </p>
+        )}
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.35 }}
+          className="mt-8 rounded-xl border border-slate-200 bg-white p-5"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 className="text-lg font-semibold text-slate-800">30-Day Cognitive Forecast</h3>
+              <p className="mt-1 text-sm text-slate-500">
+                Linear regression prediction from stability score history
+              </p>
+            </div>
+
+            {prediction && (
+              <div className="text-right">
+                <p className="text-sm text-slate-500">Predicted Stability</p>
+                <p className="text-2xl font-bold text-sky-700">{prediction.predictedStability}%</p>
+                <p className="text-sm font-semibold text-slate-700">Trend: {prediction.trend}</p>
+              </div>
+            )}
+          </div>
+
+          {predictionError && <p className="mt-4 text-sm text-rose-600">{predictionError}</p>}
+
+          {!predictionError && (
+            <div className="mt-4 h-64 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart
+                  data={prediction?.forecastSeries || [
+                    { point: "Now", stability: 88 },
+                    { point: "+30d", stability: 87 }
+                  ]}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="point" stroke="#64748b" />
+                  <YAxis domain={[0, 100]} stroke="#64748b" />
+                  <Tooltip formatter={(value) => `${Number(value).toFixed(2)}%`} />
+                  <Line type="monotone" dataKey="stability" stroke="#2563eb" strokeWidth={3} dot={{ r: 4 }} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          )}
+        </motion.section>
+
+        <BehaviorCapture
+          userId={profile?._id || profile?.id}
+          onCaptureComplete={async () => {
+            await Promise.all([loadBehaviorHistory(), loadPrediction()]);
+          }}
+        />
+      </div>
     </div>
   );
 }
