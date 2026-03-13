@@ -3,34 +3,36 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxi
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: 'rgba(15, 23, 42, 0.95)', border: '1px solid rgba(148, 163, 184, 0.12)', borderRadius: '12px', padding: '10px 14px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
-      <p style={{ color: '#f1f5f9', fontSize: '13px', fontWeight: 600 }}>{label}</p>
-      <p style={{ color: '#14b8a6', fontSize: '13px', marginTop: '2px' }}>Score: {payload[0].value}</p>
+    <div style={{ background: 'rgba(10,15,28,0.95)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '10px 14px', boxShadow: '0 12px 48px rgba(0,0,0,0.5)' }}>
+      <p style={{ fontSize: 12, fontWeight: 700, color: '#e2e8f0' }}>{label}</p>
+      <p style={{ fontSize: 12, color: '#6366f1', fontWeight: 600, marginTop: 2 }}>Score: {payload[0].value}</p>
     </div>
   );
 };
 
-export default function TrialMatchChart({ data }) {
+export default function TrialMatchChart({ data = [] }) {
   return (
-    <div className="card-surface p-6 animate-fadeInUp">
-      <h2 className="text-lg font-semibold text-slate-100 mb-4">Top Trial Match Scores</h2>
-      <div className="h-72 w-full">
-        <ResponsiveContainer>
-          <BarChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
+    <div className="rounded-2xl p-6" style={{ background: 'rgba(10,15,28,0.6)', border: '1px solid rgba(255,255,255,0.04)' }}>
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 mb-4">Trial Match Overview</p>
+      {data.length === 0 ? (
+        <div className="h-[250px] flex items-center justify-center text-sm text-slate-600">No data</div>
+      ) : (
+        <ResponsiveContainer width="100%" height={250}>
+          <BarChart data={data} barCategoryGap="20%">
             <defs>
-              <linearGradient id="matchBarGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#14b8a6" stopOpacity={1} />
-                <stop offset="100%" stopColor="#0d9488" stopOpacity={0.6} />
+              <linearGradient id="matchGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#6366f1" stopOpacity={0.9} />
+                <stop offset="100%" stopColor="#6366f1" stopOpacity={0.3} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(148, 163, 184, 0.08)" />
-            <XAxis dataKey="trialId" tick={{ fill: '#64748b', fontSize: 12 }} axisLine={{ stroke: 'rgba(148, 163, 184, 0.1)' }} />
-            <YAxis domain={[0, 100]} tick={{ fill: '#64748b', fontSize: 12 }} axisLine={{ stroke: 'rgba(148, 163, 184, 0.1)' }} />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20, 184, 166, 0.05)' }} />
-            <Bar dataKey="score" fill="url(#matchBarGradient)" radius={[8, 8, 0, 0]} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.04)" />
+            <XAxis dataKey="name" tick={{ fill: '#475569', fontSize: 11, fontWeight: 500 }} axisLine={false} tickLine={false} />
+            <YAxis tick={{ fill: '#475569', fontSize: 11, fontWeight: 500 }} axisLine={false} tickLine={false} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(99,102,241,0.04)' }} />
+            <Bar dataKey="score" fill="url(#matchGrad)" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
-      </div>
+      )}
     </div>
   );
 }

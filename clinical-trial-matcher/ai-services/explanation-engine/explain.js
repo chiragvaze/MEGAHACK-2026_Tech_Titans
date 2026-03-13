@@ -1,4 +1,5 @@
-const OPENAI_CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions";
+const GROQ_CHAT_COMPLETIONS_URL = "https://api.groq.com/openai/v1/chat/completions";
+const GROQ_MODEL = "llama-3.3-70b-versatile";
 
 function requireObject(value, fieldName) {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -48,7 +49,7 @@ export async function generateRecommendationExplanation({
   requireObject(trial, "trial");
   requireObject(matchingResult, "matchingResult");
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   const fallback = buildFallbackExplanation({
     patient,
     trial,
@@ -76,15 +77,16 @@ export async function generateRecommendationExplanation({
   };
 
   try {
-    const response = await fetch(OPENAI_CHAT_COMPLETIONS_URL, {
+    const response = await fetch(GROQ_CHAT_COMPLETIONS_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: "gpt-4.1-mini",
+        model: GROQ_MODEL,
         temperature: 0.2,
+        max_tokens: 512,
         messages: [
           {
             role: "system",
@@ -104,7 +106,7 @@ export async function generateRecommendationExplanation({
         patient,
         trial,
         matchingResult,
-        reason: `OpenAI unavailable (${response.status})`
+        reason: `Groq unavailable (${response.status})`
       });
     }
 
@@ -128,9 +130,9 @@ export async function generateChatExplanationResponse({
   matchingResult,
   matchExplanation
 }) {
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    const error = new Error("OPENAI_API_KEY is not configured.");
+    const error = new Error("GROQ_API_KEY is not configured.");
     error.statusCode = 500;
     throw error;
   }
@@ -144,15 +146,16 @@ export async function generateChatExplanationResponse({
     ? { patient, trial, matchingResult }
     : { note: "No trial context was provided by the UI." };
 
-  const response = await fetch(OPENAI_CHAT_COMPLETIONS_URL, {
+  const response = await fetch(GROQ_CHAT_COMPLETIONS_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      model: "gpt-4.1-mini",
+      model: GROQ_MODEL,
       temperature: 0.3,
+      max_tokens: 1024,
       messages: [
         {
           role: "system",
@@ -172,7 +175,7 @@ export async function generateChatExplanationResponse({
 
   if (!response.ok) {
     const details = await response.text();
-    const error = new Error(`OpenAI API request failed: ${response.status} ${details}`);
+    const error = new Error(`Groq API request failed: ${response.status} ${details}`);
     error.statusCode = 502;
     throw error;
   }
