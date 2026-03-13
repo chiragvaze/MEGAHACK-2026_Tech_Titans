@@ -1,13 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Fragment } from "react";
 import { fetchAllTrials, importTrialJsonFile } from "../services/api";
-import { Database, Filter, Upload, ChevronDown, ChevronUp, CheckCircle2, AlertCircle } from "lucide-react";
+import { Database, Filter, Upload, ChevronDown, ChevronUp, CheckCircle2, AlertCircle, Search, Globe, Beaker, ArrowRight, Sparkles, FileJson, LayoutGrid, List, Eye } from "lucide-react";
 
-const DEFAULT_FILTERS = {
-  condition: "",
-  location: "",
-  phase: ""
-};
+const DEFAULT_FILTERS = { condition: "", location: "", phase: "" };
 
 export default function TrialDatabasePage() {
   const [trials, setTrials] = useState([]);
@@ -17,257 +13,273 @@ export default function TrialDatabasePage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [viewMode, setViewMode] = useState("table"); // table or grid
 
-  async function loadTrials(activeFilters = filters) {
-    setLoading(true);
-    setError("");
-
+  async function loadTrials(active = filters) {
+    setLoading(true); setError("");
     try {
-      const response = await fetchAllTrials(activeFilters);
-      setTrials(response.trials || []);
-    } catch (requestError) {
-      setError(requestError?.response?.data?.message || "Failed to load trial data.");
-    } finally {
-      setLoading(false);
-    }
+      const res = await fetchAllTrials(active);
+      setTrials(res.trials || []);
+    } catch (err) {
+      setError(err?.response?.data?.message || "Failed to load trial data.");
+    } finally { setLoading(false); }
   }
 
-  useEffect(() => {
-    loadTrials(DEFAULT_FILTERS);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useEffect(() => { loadTrials(DEFAULT_FILTERS); }, []);
 
-  const phases = useMemo(() => {
-    const values = new Set(trials.map((trial) => trial.phase).filter(Boolean));
-    return Array.from(values).sort();
-  }, [trials]);
+  const phases = useMemo(() => Array.from(new Set(trials.map((t) => t.phase).filter(Boolean))).sort(), [trials]);
 
-  function onFilterChange(event) {
-    const { name, value } = event.target;
-    setFilters((prev) => ({ ...prev, [name]: value }));
+  function onFilterChange(e) {
+    setFilters((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  async function applyFilters() {
-    await loadTrials(filters);
-  }
-
-  async function clearFilters() {
-    setFilters(DEFAULT_FILTERS);
-    await loadTrials(DEFAULT_FILTERS);
-  }
+  async function applyFilters() { await loadTrials(filters); }
+  async function clearFilters() { setFilters(DEFAULT_FILTERS); await loadTrials(DEFAULT_FILTERS); }
 
   async function onImportDataset() {
-    if (!uploadFile) {
-      setError("Select a JSON file before importing.");
-      return;
-    }
-
-    setLoading(true);
-    setError("");
-    setMessage("");
-
+    if (!uploadFile) { setError("Select a JSON file before importing."); return; }
+    setLoading(true); setError(""); setMessage("");
     try {
-      const response = await importTrialJsonFile(uploadFile);
-      setMessage(`Imported ${response.count} trial records.`);
+      const res = await importTrialJsonFile(uploadFile);
+      setMessage(`Imported ${res.count} trial records successfully.`);
       setUploadFile(null);
       await loadTrials(filters);
-    } catch (requestError) {
-      setError(requestError?.response?.data?.message || "Failed to import trial JSON file.");
-    } finally {
-      setLoading(false);
-    }
+    } catch (err) {
+      setError(err?.response?.data?.message || "Failed to import trial JSON file.");
+    } finally { setLoading(false); }
   }
 
   const phaseColor = (phase) => {
-    if (!phase) return "badge-teal";
-    if (phase.includes("1")) return "badge-indigo";
-    if (phase.includes("2")) return "badge-amber";
-    return "badge-teal";
+    if (!phase) return { bg: "rgba(20,184,166,0.08)", text: "#5eead4", border: "rgba(20,184,166,0.12)" };
+    if (phase.includes("1")) return { bg: "rgba(139,92,246,0.08)", text: "#c4b5fd", border: "rgba(139,92,246,0.12)" };
+    if (phase.includes("2")) return { bg: "rgba(245,158,11,0.08)", text: "#fbbf24", border: "rgba(245,158,11,0.12)" };
+    if (phase.includes("3")) return { bg: "rgba(99,102,241,0.08)", text: "#a5b4fc", border: "rgba(99,102,241,0.12)" };
+    return { bg: "rgba(20,184,166,0.08)", text: "#5eead4", border: "rgba(20,184,166,0.12)" };
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header + Import */}
-      <section className="card-surface p-6 animate-fadeInUp">
-        <div className="flex items-start gap-3 mb-1">
-          <div className="p-2 rounded-xl bg-accent-teal/10">
-            <Database className="w-5 h-5 text-accent-teal" />
+    <div className="space-y-6 animate-fadeIn">
+      {/* ═══ Banner ═══ */}
+      <div className="rounded-2xl p-6 relative overflow-hidden"
+           style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.06), rgba(139,92,246,0.04), rgba(20,184,166,0.03))', border: '1px solid rgba(99,102,241,0.08)' }}>
+        <div className="relative z-10">
+          <div className="flex items-center gap-2 mb-1">
+            <Sparkles className="w-4 h-4 text-indigo-400" />
+            <span className="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider">Trial Repository</span>
           </div>
-          <div>
-            <h2 className="text-xl font-semibold text-slate-100">Clinical Trial Database</h2>
-            <p className="mt-1 text-sm text-slate-400">
-              Import trial datasets and explore records with fast filters and full eligibility criteria views.
-            </p>
-          </div>
+          <h2 className="text-xl font-bold text-slate-100">Clinical Trial Database</h2>
+          <p className="text-sm text-slate-500 mt-1">Import, explore, and filter trial datasets with full eligibility criteria.</p>
         </div>
+        <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-indigo-400/[0.03] blur-3xl pointer-events-none" />
+      </div>
 
-        <div className="mt-5 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
-          <input
-            type="file"
-            accept=".json"
-            onChange={(event) => setUploadFile(event.target.files?.[0] || null)}
-            className="input-dark"
-          />
-          <button
-            type="button"
-            onClick={onImportDataset}
-            disabled={loading}
-            className="btn-glow flex items-center gap-2"
-          >
-            <Upload className="w-4 h-4" /> Import JSON Dataset
+      {/* ═══ Import + Filters Row ═══ */}
+      <div className="grid gap-6 lg:grid-cols-[1fr_1.5fr]">
+        {/* Import */}
+        <div className="rounded-2xl p-5" style={{ background: 'rgba(10,15,28,0.6)', border: '1px solid rgba(255,255,255,0.04)' }}>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 mb-3">Import Dataset</p>
+          <label className="flex items-center gap-3 rounded-xl px-4 py-3 cursor-pointer transition-all hover:border-white/[0.1]"
+                 style={{ background: 'rgba(6,10,19,0.5)', border: '1px solid rgba(255,255,255,0.04)' }}>
+            <input type="file" accept=".json" onChange={(e) => setUploadFile(e.target.files?.[0] || null)} className="hidden" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold flex-shrink-0"
+                  style={{ background: 'rgba(99,102,241,0.1)', color: '#a5b4fc', border: '1px solid rgba(99,102,241,0.15)' }}>
+              <FileJson className="w-3.5 h-3.5" /> Browse
+            </span>
+            <span className="text-sm text-slate-500 truncate">{uploadFile ? uploadFile.name : "Select .json file"}</span>
+          </label>
+          <button type="button" onClick={onImportDataset} disabled={loading || !uploadFile}
+            className="mt-3 btn-glow w-full flex items-center justify-center gap-2 text-sm">
+            <Upload className="w-4 h-4" /> Import Records
           </button>
         </div>
-      </section>
 
-      {/* Filters */}
-      <section className="card-surface p-6 animate-fadeInUp" style={{ animationDelay: '100ms' }}>
-        <h3 className="text-lg font-semibold text-slate-100 flex items-center gap-2">
-          <Filter className="w-5 h-5 text-accent-cyan" /> Filters
-        </h3>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          <input
-            name="condition"
-            value={filters.condition}
-            onChange={onFilterChange}
-            placeholder="Condition"
-            className="input-dark"
-          />
-          <input
-            name="location"
-            value={filters.location}
-            onChange={onFilterChange}
-            placeholder="Location"
-            className="input-dark"
-          />
-          <select
-            name="phase"
-            value={filters.phase}
-            onChange={onFilterChange}
-            className="input-dark"
-          >
-            <option value="">All Phases</option>
-            {phases.map((phase) => (
-              <option key={phase} value={phase}>
-                {phase}
-              </option>
+        {/* Filters */}
+        <div className="rounded-2xl p-5" style={{ background: 'rgba(10,15,28,0.6)', border: '1px solid rgba(255,255,255,0.04)' }}>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 mb-3">Filters</p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { name: "condition", placeholder: "Diabetes", label: "Condition", icon: Search },
+              { name: "location", placeholder: "Mumbai", label: "Location", icon: Globe },
+            ].map((f) => (
+              <div key={f.name}>
+                <div className="relative">
+                  <f.icon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-600" />
+                  <input name={f.name} value={filters[f.name]} onChange={onFilterChange} placeholder={f.placeholder}
+                    className="w-full rounded-xl pl-9 pr-3 py-2.5 text-sm bg-white/[0.02] border border-white/[0.05] text-slate-200 placeholder:text-slate-700 outline-none focus:border-teal-500/30 transition-all" />
+                </div>
+              </div>
             ))}
-          </select>
-        </div>
-
-        <div className="mt-4 flex gap-3">
-          <button
-            type="button"
-            onClick={applyFilters}
-            disabled={loading}
-            className="btn-glow"
-          >
-            Apply Filters
-          </button>
-          <button
-            type="button"
-            onClick={clearFilters}
-            disabled={loading}
-            className="btn-outline"
-          >
-            Clear
-          </button>
-        </div>
-      </section>
-
-      {/* Trials Table */}
-      <section className="card-surface p-6 animate-fadeInUp" style={{ animationDelay: '200ms' }}>
-        <h3 className="text-lg font-semibold text-slate-100 flex items-center justify-between">
-          <span>Trials</span>
-          {trials.length > 0 && (
-            <span className="badge-teal text-xs">{trials.length} records</span>
-          )}
-        </h3>
-
-        {loading ? (
-          <div className="mt-4 flex items-center gap-2 text-sm text-slate-400">
-            <div className="w-4 h-4 border-2 border-accent-teal/30 border-t-accent-teal rounded-full animate-spin" />
-            Loading trials...
+            <div>
+              <div className="relative">
+                <Beaker className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-600" />
+                <select name="phase" value={filters.phase} onChange={onFilterChange}
+                  className="w-full rounded-xl pl-9 pr-3 py-2.5 text-sm bg-white/[0.02] border border-white/[0.05] text-slate-200 outline-none focus:border-teal-500/30 transition-all appearance-none">
+                  <option value="" style={{ background: '#0c1222' }}>All Phases</option>
+                  {phases.map((p) => <option key={p} value={p} style={{ background: '#0c1222' }}>{p}</option>)}
+                </select>
+              </div>
+            </div>
           </div>
-        ) : null}
+          <div className="mt-3 flex gap-2">
+            <button type="button" onClick={applyFilters} disabled={loading} className="btn-glow text-sm px-5">Apply</button>
+            <button type="button" onClick={clearFilters} disabled={loading} className="btn-outline text-sm px-5">Clear</button>
+          </div>
+        </div>
+      </div>
 
-        <div className="mt-4 overflow-x-auto rounded-xl border border-surface-border">
-          <table className="min-w-full text-sm table-dark">
-            <thead>
-              <tr>
-                <th className="px-3 py-3 text-left">Trial ID</th>
-                <th className="px-3 py-3 text-left">Title</th>
-                <th className="px-3 py-3 text-left">Condition</th>
-                <th className="px-3 py-3 text-left">Location</th>
-                <th className="px-3 py-3 text-left">Phase</th>
-                <th className="px-3 py-3 text-left">Age Range</th>
-                <th className="px-3 py-3 text-left">Criteria</th>
-              </tr>
-            </thead>
-            <tbody>
-              {trials.map((trial) => {
-                const isOpen = expandedTrialId === trial.trialId;
+      {/* ═══ Results Header ═══ */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <p className="text-[13px] font-semibold text-slate-200">Trial Records</p>
+          {trials.length > 0 && (
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-teal-400 bg-teal-400/10 border border-teal-400/15">{trials.length}</span>
+          )}
+          {loading && <div className="w-3.5 h-3.5 border-2 border-teal-400/30 border-t-teal-400 rounded-full animate-spin" />}
+        </div>
+        <div className="flex rounded-lg p-0.5" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)' }}>
+          {[
+            { id: "table", icon: List },
+            { id: "grid", icon: LayoutGrid }
+          ].map((v) => (
+            <button key={v.id} onClick={() => setViewMode(v.id)}
+              className={`p-2 rounded-md transition-all ${viewMode === v.id ? "text-teal-400 bg-teal-400/10" : "text-slate-600 hover:text-slate-400"}`}>
+              <v.icon className="w-4 h-4" />
+            </button>
+          ))}
+        </div>
+      </div>
 
-                return (
-                  <Fragment key={trial.trialId}>
-                    <tr>
-                      <td className="px-3 py-3 font-semibold text-slate-200">{trial.trialId}</td>
-                      <td className="px-3 py-3 text-slate-300 max-w-[200px] truncate">{trial.title}</td>
-                      <td className="px-3 py-3">{trial.condition}</td>
-                      <td className="px-3 py-3">{trial.location}</td>
-                      <td className="px-3 py-3">
-                        <span className={`badge ${phaseColor(trial.phase)}`}>{trial.phase}</span>
-                      </td>
-                      <td className="px-3 py-3 text-slate-300">
-                        {trial.minAge} – {trial.maxAge}
-                      </td>
-                      <td className="px-3 py-3">
-                        <button
-                          type="button"
-                          onClick={() => setExpandedTrialId(isOpen ? "" : trial.trialId)}
-                          className="btn-outline py-1.5 px-3 text-xs flex items-center gap-1"
-                        >
-                          {isOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                          {isOpen ? "Hide" : "View"}
-                        </button>
-                      </td>
-                    </tr>
-                    {isOpen && (
+      {/* ═══ Grid View ═══ */}
+      {viewMode === "grid" && trials.length > 0 && (
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {trials.map((trial) => {
+            const pc = phaseColor(trial.phase);
+            const isOpen = expandedTrialId === trial.trialId;
+            return (
+              <div key={trial.trialId} className="rounded-2xl p-5 group transition-all duration-200 hover:border-white/[0.08]"
+                   style={{ background: 'rgba(10,15,28,0.6)', border: '1px solid rgba(255,255,255,0.04)' }}>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-bold text-slate-400">{trial.trialId}</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: pc.bg, color: pc.text, border: `1px solid ${pc.border}` }}>{trial.phase}</span>
+                </div>
+                <h4 className="text-[13px] font-semibold text-slate-200 line-clamp-2 mb-2">{trial.title}</h4>
+                <div className="space-y-1.5 text-[12px] text-slate-500">
+                  <p><span className="text-slate-600">Condition:</span> {trial.condition}</p>
+                  <p><span className="text-slate-600">Location:</span> {trial.location}</p>
+                  <p><span className="text-slate-600">Age:</span> {trial.minAge} – {trial.maxAge}</p>
+                </div>
+                <button type="button" onClick={() => setExpandedTrialId(isOpen ? "" : trial.trialId)}
+                  className="mt-3 w-full btn-outline text-[11px] py-2 flex items-center justify-center gap-1.5">
+                  <Eye className="w-3 h-3" /> {isOpen ? "Hide Criteria" : "View Criteria"}
+                </button>
+                {isOpen && (
+                  <div className="mt-3 space-y-2 text-[12px] animate-fadeIn">
+                    <div className="rounded-lg p-3" style={{ background: 'rgba(6,10,19,0.5)', border: '1px solid rgba(255,255,255,0.03)' }}>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-teal-400 mb-1">Inclusion</p>
+                      <p className="text-slate-400 whitespace-pre-wrap leading-relaxed">{trial.inclusionCriteria}</p>
+                    </div>
+                    <div className="rounded-lg p-3" style={{ background: 'rgba(6,10,19,0.5)', border: '1px solid rgba(255,255,255,0.03)' }}>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-red-400 mb-1">Exclusion</p>
+                      <p className="text-slate-400 whitespace-pre-wrap leading-relaxed">{trial.exclusionCriteria}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* ═══ Table View ═══ */}
+      {viewMode === "table" && (
+        <div className="rounded-2xl p-1" style={{ background: 'rgba(10,15,28,0.6)', border: '1px solid rgba(255,255,255,0.04)' }}>
+          <div className="overflow-x-auto rounded-xl">
+            <table className="min-w-full text-sm table-dark">
+              <thead>
+                <tr>
+                  <th>Trial ID</th>
+                  <th>Title</th>
+                  <th>Condition</th>
+                  <th>Location</th>
+                  <th>Phase</th>
+                  <th>Age Range</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trials.map((trial) => {
+                  const isOpen = expandedTrialId === trial.trialId;
+                  const pc = phaseColor(trial.phase);
+                  return (
+                    <Fragment key={trial.trialId}>
                       <tr>
-                        <td className="px-3 py-3" colSpan={7}>
-                          <div className="grid gap-4 rounded-xl p-5 md:grid-cols-2 animate-fadeInUp" style={{ background: 'rgba(15, 23, 42, 0.5)', border: '1px solid rgba(148, 163, 184, 0.08)' }}>
-                            <article>
-                              <h4 className="font-semibold text-accent-teal text-sm">Inclusion Criteria</h4>
-                              <p className="mt-2 whitespace-pre-wrap text-slate-300 text-sm leading-relaxed">{trial.inclusionCriteria}</p>
-                            </article>
-                            <article>
-                              <h4 className="font-semibold text-accent-amber text-sm">Exclusion Criteria</h4>
-                              <p className="mt-2 whitespace-pre-wrap text-slate-300 text-sm leading-relaxed">{trial.exclusionCriteria}</p>
-                            </article>
-                          </div>
+                        <td className="font-semibold text-slate-300">{trial.trialId}</td>
+                        <td className="text-slate-400 max-w-[200px] truncate">{trial.title}</td>
+                        <td>{trial.condition}</td>
+                        <td>{trial.location}</td>
+                        <td>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: pc.bg, color: pc.text, border: `1px solid ${pc.border}` }}>{trial.phase}</span>
+                        </td>
+                        <td className="tabular-nums text-slate-500">{trial.minAge} – {trial.maxAge}</td>
+                        <td>
+                          <button type="button" onClick={() => setExpandedTrialId(isOpen ? "" : trial.trialId)}
+                            className="btn-outline py-1.5 px-3 text-[11px] flex items-center gap-1">
+                            {isOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                            {isOpen ? "Hide" : "View"}
+                          </button>
                         </td>
                       </tr>
-                    )}
-                  </Fragment>
-                );
-              })}
-            </tbody>
-          </table>
+                      {isOpen && (
+                        <tr>
+                          <td colSpan={7} className="!p-0">
+                            <div className="grid gap-4 p-5 md:grid-cols-2 animate-fadeIn" style={{ background: 'rgba(6,10,19,0.4)', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+                              <div>
+                                <p className="text-[10px] font-bold uppercase tracking-wider text-teal-400 mb-2 flex items-center gap-1.5">
+                                  <CheckCircle2 className="w-3.5 h-3.5" /> Inclusion Criteria
+                                </p>
+                                <p className="whitespace-pre-wrap text-slate-400 text-sm leading-relaxed">{trial.inclusionCriteria}</p>
+                              </div>
+                              <div>
+                                <p className="text-[10px] font-bold uppercase tracking-wider text-red-400 mb-2 flex items-center gap-1.5">
+                                  <AlertCircle className="w-3.5 h-3.5" /> Exclusion Criteria
+                                </p>
+                                <p className="whitespace-pre-wrap text-slate-400 text-sm leading-relaxed">{trial.exclusionCriteria}</p>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
+      )}
 
-        {!loading && trials.length === 0 && (
-          <p className="mt-4 text-sm text-slate-500">No trials found.</p>
-        )}
-        {message && (
-          <div className="mt-4 flex items-center gap-2 rounded-xl border border-accent-teal/30 bg-accent-teal/10 px-4 py-3 text-sm text-teal-300">
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" /> {message}
-          </div>
-        )}
-        {error && (
-          <div className="mt-4 flex items-center gap-2 rounded-xl border border-accent-rose/30 bg-accent-rose/10 px-4 py-3 text-sm text-red-300">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" /> {error}
-          </div>
-        )}
-      </section>
+      {/* Empty state */}
+      {!loading && trials.length === 0 && (
+        <div className="rounded-2xl p-12 text-center" style={{ background: 'rgba(10,15,28,0.6)', border: '1px dashed rgba(255,255,255,0.04)' }}>
+          <Database className="w-12 h-12 text-slate-700/40 mx-auto mb-4" />
+          <p className="text-sm font-medium text-slate-500">No trials found</p>
+          <p className="text-xs text-slate-600 mt-1">Import a JSON dataset to populate the trial database.</p>
+        </div>
+      )}
+
+      {/* Status */}
+      {message && (
+        <div className="flex items-center gap-2.5 rounded-xl px-5 py-3.5 text-sm text-teal-300 animate-fadeIn"
+             style={{ background: 'rgba(20,184,166,0.06)', border: '1px solid rgba(20,184,166,0.12)' }}>
+          <CheckCircle2 className="w-4 h-4 flex-shrink-0" /> {message}
+        </div>
+      )}
+      {error && (
+        <div className="flex items-center gap-2.5 rounded-xl px-5 py-3.5 text-sm text-red-300 animate-fadeIn"
+             style={{ background: 'rgba(244,63,94,0.06)', border: '1px solid rgba(244,63,94,0.12)' }}>
+          <AlertCircle className="w-4 h-4 flex-shrink-0" /> {error}
+        </div>
+      )}
     </div>
   );
 }

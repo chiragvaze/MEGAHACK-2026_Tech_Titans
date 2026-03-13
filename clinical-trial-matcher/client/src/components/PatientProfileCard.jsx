@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchPatientById } from "../services/api";
-import { User, Clock, Activity, MapPin } from "lucide-react";
+import { User, Clock, HeartPulse, MapPin } from "lucide-react";
 
 export default function PatientProfileCard({ patientId }) {
   const [patient, setPatient] = useState(null);
@@ -8,97 +8,62 @@ export default function PatientProfileCard({ patientId }) {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    async function loadPatientProfile() {
-      if (!patientId?.trim()) {
-        setPatient(null);
-        setError("");
-        setLoading(false);
-        return;
-      }
-
-      setLoading(true);
-      setError("");
-
+    async function load() {
+      if (!patientId?.trim()) { setPatient(null); setError(""); return; }
+      setLoading(true); setError("");
       try {
-        const response = await fetchPatientById(patientId.trim());
-        setPatient(response?.patient || null);
-      } catch (requestError) {
+        const res = await fetchPatientById(patientId.trim());
+        setPatient(res?.patient || null);
+      } catch (err) {
         setPatient(null);
-        setError(requestError?.response?.data?.message || "Unable to load patient profile.");
-      } finally {
-        setLoading(false);
-      }
+        setError(err?.response?.data?.message || "Unable to load patient profile.");
+      } finally { setLoading(false); }
     }
-
-    loadPatientProfile();
+    load();
   }, [patientId]);
 
-  const statCards = patient ? [
-    {
-      icon: User,
-      label: "Patient ID",
-      value: patient.patientId,
-      color: "text-accent-teal"
-    },
-    {
-      icon: Clock,
-      label: "Age",
-      value: patient.age,
-      color: "text-accent-cyan"
-    },
-    {
-      icon: Activity,
-      label: "Conditions",
-      value: Array.isArray(patient.conditions) && patient.conditions.length
-        ? patient.conditions.join(", ")
-        : "Not provided",
-      color: "text-accent-amber"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: patient.location || "Not provided",
-      color: "text-accent-indigo"
-    }
+  const stats = patient ? [
+    { icon: User, label: "Patient ID", value: patient.patientId, color: "#14b8a6" },
+    { icon: Clock, label: "Age", value: patient.age, color: "#22d3ee" },
+    { icon: HeartPulse, label: "Conditions", value: Array.isArray(patient.conditions) && patient.conditions.length ? patient.conditions.join(", ") : "–", color: "#f59e0b" },
+    { icon: MapPin, label: "Location", value: patient.location || "–", color: "#6366f1" }
   ] : [];
 
   return (
-    <section className="card-surface p-6 animate-fadeInUp">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h3 className="text-lg font-semibold text-slate-100 flex items-center gap-2">
-          <User className="w-5 h-5 text-accent-teal" /> Patient Profile
-        </h3>
-        <span className="badge-teal">Clinical Snapshot</span>
-      </div>
+    <div className="rounded-2xl p-6" style={{ background: 'rgba(10,15,28,0.6)', border: '1px solid rgba(255,255,255,0.04)' }}>
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 mb-4">Patient Profile</p>
 
       {!patientId?.trim() && (
-        <p className="mt-3 text-sm text-slate-500">Enter a patient ID to load patient details.</p>
+        <div className="rounded-xl p-8 text-center" style={{ background: 'rgba(6,10,19,0.4)', border: '1px dashed rgba(255,255,255,0.04)' }}>
+          <User className="w-10 h-10 text-slate-700/40 mx-auto mb-3" />
+          <p className="text-sm text-slate-500">Enter a patient ID to view profile</p>
+        </div>
       )}
 
       {loading && (
-        <div className="mt-3 flex items-center gap-2 text-sm text-slate-400">
-          <div className="w-4 h-4 border-2 border-accent-teal/30 border-t-accent-teal rounded-full animate-spin" />
-          Loading patient profile...
+        <div className="flex items-center gap-2 text-sm text-slate-500">
+          <div className="w-4 h-4 border-2 border-teal-400/30 border-t-teal-400 rounded-full animate-spin" /> Loading...
         </div>
       )}
-      {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+      {error && <p className="text-sm text-red-400">{error}</p>}
 
       {!loading && !error && patient && (
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4 stagger-children">
-          {statCards.map((card) => (
-            <article
-              key={card.label}
-              className="card-surface p-4 group hover:border-accent-teal/20 transition-all duration-300 animate-fadeInUp"
-            >
-              <p className={`flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500`}>
-                <card.icon className={`w-4 h-4 ${card.color} group-hover:scale-110 transition-transform`} />
-                {card.label}
-              </p>
-              <p className="mt-1.5 text-sm font-semibold text-slate-200">{card.value}</p>
-            </article>
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="rounded-xl p-4 group transition-all hover:border-white/[0.08]"
+                 style={{ background: 'rgba(6,10,19,0.5)', border: '1px solid rgba(255,255,255,0.03)' }}>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110"
+                     style={{ background: `${s.color}12`, border: `1px solid ${s.color}20` }}>
+                  <s.icon className="w-3.5 h-3.5" style={{ color: s.color }} />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600">{s.label}</span>
+              </div>
+              <p className="text-[13px] font-bold text-slate-200">{s.value}</p>
+            </div>
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 }
