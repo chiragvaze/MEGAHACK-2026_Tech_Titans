@@ -10,7 +10,7 @@ import TrialRankingChart from "../components/TrialRankingChart";
 import EligibilityDistributionChart from "../components/EligibilityDistributionChart";
 
 import PatientProfileCard from "../components/PatientProfileCard";
-import { BarChart3, MapPin, Zap, TrendingUp, AlertCircle, Target, Activity, Brain, ArrowRight, Sparkles, Users, Clock } from "lucide-react";
+import { BarChart3, MapPin, Zap, TrendingUp, AlertCircle, Target, Activity, Brain, ArrowRight, Sparkles, Users, Clock, Download } from "lucide-react";
 
 const DEFAULT_PATIENT = {
   patientId: "", age: "", gender: "", conditions: "", medications: "", location: ""
@@ -130,6 +130,22 @@ export default function MatchResultsDashboardPage() {
     }
   }
 
+  const handleExportCSV = () => {
+    if (!recommendations.length) return;
+    const headers = ["Trial ID", "Match Score", "Patient ID", "Age", "Gender", "Location"];
+    const rows = recommendations.map(r => [
+      r.trialId, r.score, patientForm.patientId || "N/A", patientForm.age || "N/A", patientForm.gender || "N/A", patientForm.location || "N/A"
+    ]);
+    const csvContent = [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `ctm_matches_${patientForm.patientId || 'report'}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const hasResults = recommendations.length > 0;
 
   return (
@@ -188,12 +204,17 @@ export default function MatchResultsDashboardPage() {
         </div>
       </div>
 
+      {/* ═══ Loading Skeletons ═══ */}
+      {loading && <MatchResultsSkeleton />}
+
       {/* ═══ Metrics Row with Score Rings ═══ */}
-      {hasResults && (
+      {!loading && hasResults && (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Score Ring */}
           <div className="col-span-2 lg:col-span-1 rounded-2xl p-6 flex items-center justify-center relative"
                style={{ background: 'rgba(10,15,28,0.6)', border: '1px solid rgba(255,255,255,0.04)' }}>
+            <button onClick={handleExportCSV} className="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-teal-400 hover:bg-teal-400/10 transition-colors" title="Export Dashboard CSV">
+              <Download className="w-4 h-4" />
+            </button>
             <ScoreRing score={bestScore} label="best" />
           </div>
 
@@ -224,7 +245,7 @@ export default function MatchResultsDashboardPage() {
 
 
 
-      {hasResults && (
+      {!loading && hasResults && (
         <div className="space-y-6 animate-fadeInUp delay-100">
           <PatientProfileCard patientId={patientForm.patientId} />
 
@@ -233,7 +254,7 @@ export default function MatchResultsDashboardPage() {
             <RecommendedTrialsList
               recommendations={recommendations} selectedTrialId={selectedTrialId}
               onSelectTrial={loadExplanation} explanationByTrial={explanationByTrial}
-              explanationLoading={explanationLoading}
+              explanationLoading={explanationLoading} patientForm={patientForm}
             />
             <MatchConfidenceChart recommendations={recommendations} />
           </div>
@@ -243,6 +264,22 @@ export default function MatchResultsDashboardPage() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function MatchResultsSkeleton() {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="h-36 rounded-2xl skeleton-shimmer border border-white/[0.04]" />
+        ))}
+      </div>
+      <div className="grid gap-6 xl:grid-cols-2">
+        <div className="h-[400px] rounded-2xl skeleton-shimmer border border-white/[0.04]" />
+        <div className="h-[400px] rounded-2xl skeleton-shimmer border border-white/[0.04]" />
+      </div>
     </div>
   );
 }
